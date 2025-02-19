@@ -1,3 +1,4 @@
+# O(N)
 class Solution:
     def romanToInt(self, s: str) -> int:
         res = idx = 0
