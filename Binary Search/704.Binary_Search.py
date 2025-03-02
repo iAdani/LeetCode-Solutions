@@ -1,4 +1,5 @@
 class Solution:
+    # O(log(N))
     def search(self, nums: List[int], target: int) -> int:
         r, l = len(nums) - 1, 0
         while r >= l:
