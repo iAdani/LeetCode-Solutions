@@ -27,8 +27,3 @@ class Solution(object):
         
         return len(lst)
 
-
-            
-
-
-        
