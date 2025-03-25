@@ -39,12 +39,9 @@ class Solution:
             buckets[freq].append(num)
         
         res = []
-        while n > -1:
+        while len(res) < k:
             res.extend(buckets[n])
             n -= 1
-
-            if len(res) == k:
-                break
         
         return res
         
