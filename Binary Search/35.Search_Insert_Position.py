@@ -1,17 +1,16 @@
 # O(log(N))
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        r, l = len(nums) - 1, 0
-
+        l, r = 0, len(nums) - 1
+        
         while r >= l:
-            m = r + ((l - r) // 2)
-            if nums[m] == target:
-                return m
-            if nums[m] < target:
+            m = r - ((r - l) // 2)
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
                 l = m + 1
             else:
-                r = m - 1
+                return m
         
-
         return m if nums[m] > target else m + 1
         
