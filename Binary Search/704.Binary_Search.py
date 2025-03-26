@@ -1,15 +1,16 @@
 class Solution:
     # O(log(N))
     def search(self, nums: List[int], target: int) -> int:
-        r, l = len(nums) - 1, 0
+        l, r = 0, len(nums) - 1
+
         while r >= l:
-            m = r + ((l - r) // 2)
-            if nums[m] == target:
-                return m
+            m = r - ((r - l) // 2)
             if nums[m] > target:
                 r = m - 1
-            else:
+            elif nums[m] < target:
                 l = m + 1
+            else:
+                return m
         
         return -1
         
