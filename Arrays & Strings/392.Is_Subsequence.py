@@ -9,7 +9,4 @@ class Solution:
                 s_idx += 1
             t_idx += 1
         
-        if s_idx == m:
-            return True
-        
-        return False
+        return s_idx == m
