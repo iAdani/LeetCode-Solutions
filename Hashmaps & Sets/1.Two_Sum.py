@@ -33,4 +33,14 @@ class Solution:
             x = target - nums[i]
             if x in nums_dict and nums_dict[x] != i:
                 return [i, nums_dict[x]]   
-        
+            
+    
+    # O(N)
+    # Using a dictionary, but without inserting at the beginning
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        nums_dict = {}
+        for i, num in enumerate(nums):
+            if target - num in nums_dict:
+                return [i, nums_dict[target - num]]
+
+            nums_dict[num] = i
