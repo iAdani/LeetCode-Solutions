@@ -60,16 +60,27 @@ class Solution:
         result.append(word2[i:])
         return ''.join(result)
 
+    # O(N)
+    # Even faster
+    def mergeAlternately5(self, word1: str, word2: str) -> str:
+        sol = []
+        for c1, c2 in zip(word1, word2):
+            sol.extend([c1, c2])
+        
+        n = len(sol)
+        sol.extend(list([word1[n//2:], word2[n//2:]]))
+        return "".join(sol)
+    
 
 word1 = 'A' * 999999
 word2 = 'B' * 990009
 
 start_time = time.time()
-res = Solution().mergeAlternately3(word1, word2)
+res = Solution().mergeAlternately4(word1, word2)
 print(f"--- {(time.time() - start_time)} seconds ---")
 
 start_time = time.time()
-res = Solution().mergeAlternately4(word1, word2)
+res = Solution().mergeAlternately5(word1, word2)
 print(f"--- {(time.time() - start_time)} seconds ---")
 
 # Result:
