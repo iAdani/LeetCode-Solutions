@@ -36,3 +36,14 @@ class Solution:
                 end -= 1
 
         return "".join(s)
+    
+
+    # O(N)
+    # Not mine but a beautiful solution I wanted to keep.
+    # It gets all the vowels from the input, then going over the input
+    # again, for non-vowels - add them, and for vowels - pop from the 
+    # vowels found in the last step, which makes them reversed.
+    def reverseVowels(self, s: str) -> str:
+        vowels=[i for i in s if i in "aeiouAEIOU"]
+        result=[i if i not in "aeiouAEIOU" else vowels.pop() for i in s]
+        return "".join(result)
