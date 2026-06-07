@@ -48,3 +48,20 @@ class Solution:
         if Counter(s) == Counter(t):
             return True
         return False
+
+    # Time: O(n), Space: O(n + m)
+    # Cleanest solution, Counter equality handles
+    # both length and frequency in one comparison
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+
+    # Time: O(n), Space: O(n + m)
+    # Single pass solution, without the standard library
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        freq = {}
+        for a, b in zip(s, t):
+            freq[a] = freq.get(a, 0) + 1
+            freq[b] = freq.get(b, 0) - 1
+        return all(x == 0 for x in freq.values())
