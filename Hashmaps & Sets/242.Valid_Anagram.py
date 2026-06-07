@@ -39,3 +39,12 @@ class Solution:
     # representation. Therefore in that case, the space 
     # complexity is O(1), and in the general case, without
     # the length constraint, it is O(log(N)).
+
+    # Time: O(n), Space: O(n + m)
+    # Pythonic solution
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        if Counter(s) == Counter(t):
+            return True
+        return False
